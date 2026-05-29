@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Petr Petrenko — Vice Manager, Platform SRE Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #777777;
+      --accent: #0057ff;
+      --border: #e4e4e4;
+      --tag-bg: #f2f2f2;
+      --tag-text: #333333;
+      --section-gap: 2.75rem;
+    }
+
+    body {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 15px;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .container { max-width: 860px; margin: 0 auto; }
+
+    /* ── Header ── */
+    header {
+      border-bottom: 2px solid var(--text);
+      padding-bottom: 1.5rem;
+      margin-bottom: var(--section-gap);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    header .title {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      font-weight: 400;
+    }
+
+    .meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      margin-top: 0.85rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.3rem 0.75rem;
+    }
+
+    .meta a { color: var(--accent); text-decoration: none; }
+    .meta a:hover { text-decoration: underline; }
+    .meta .sep { color: var(--border); user-select: none; pointer-events: none; }
+
+    /* ── Sections ── */
+    section { margin-bottom: var(--section-gap); }
+
+    section h2 {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Summary ── */
+    .summary p {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ── Experience ── */
+    .job {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .job:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+
+    .job-header .company { font-weight: 700; font-size: 1rem; }
+    .job-header .period { font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+
+    .job .role {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin: 0.2rem 0;
+      font-weight: 600;
+    }
+
+    .job .location { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.7rem; }
+
+    .job ul { list-style: none; padding: 0; }
+
+    .job ul li {
+      padding-left: 1.1rem;
+      position: relative;
+      margin-bottom: 0.35rem;
+      font-size: 0.88rem;
+      color: #2a2a2a;
+      line-height: 1.6;
+    }
+
+    .job ul li::before { content: '–'; position: absolute; left: 0; color: var(--muted); }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 0.6rem 1rem;
+      align-items: start;
+    }
+
+    .skills-grid .label { color: var(--muted); font-size: 0.83rem; font-weight: 500; padding-top: 0.25rem; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    /* ── Education / Languages ── */
+    .simple-list { font-size: 0.88rem; display: flex; flex-direction: column; gap: 0.4rem; }
+
+    .simple-list .item {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.15rem;
+    }
+
+    .simple-list .item .name { font-weight: 600; }
+    .simple-list .item .detail { color: var(--muted); font-size: 0.83rem; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; }
+
+    /* ── Print ── */
+    @media print {
+      body { padding: 1.5cm; font-size: 13px; }
+      .container { max-width: 100%; }
+      a { color: inherit; text-decoration: none; }
+      .job { border-bottom: 1px solid #ddd; }
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 2rem 1.25rem 4rem; }
+      header h1 { font-size: 1.6rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skills-grid .label { margin-top: 0.6rem; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ── Header ── -->
+  <header>
+    <h1>Petr Petrenko</h1>
+    <div class="title">Engineering Manager &amp; Platform Architect · Vice Manager, Platform SRE Group · Rakuten Group, Inc.</div>
+    <div class="meta">
+      <div class="meta-row">
+        <span>📍 Tokyo, Japan</span>
+        <span class="sep">·</span>
+        <span>Open to relocation in Europe (Spain, France)</span>
+      </div>
+      <div class="meta-row">
+        <a href="mailto:n0ctrl.void@gmail.com">n0ctrl.void@gmail.com</a>
+        <span class="sep">·</span>
+        <a href="https://linkedin.com/in/n0rm4l" target="_blank">linkedin.com/in/n0rm4l</a>
+        <span class="sep">·</span>
+        <a href="https://github.com/n0rm4l-me" target="_blank">github.com/n0rm4l-me</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Summary ── -->
+  <section class="summary">
+    <h2>Profile</h2>
+    <p>
+      Engineering leader and platform architect with 10+ years building cloud-native systems at scale.
+      Currently managing two platform teams at Rakuten (Point &amp; Coupon) handling peaks of up to 80,000 RPS,
+      while continuing hands-on architecture work across GCP, Kubernetes, and distributed systems.
+      Strong believer in autonomous systems over automation — building platforms that scale, heal, and operate
+      themselves without human intervention. Built an AI-powered monitoring system on Gemini that runs fully
+      autonomously across the entire infrastructure stack. Specialized in Kubernetes, IaC, observability,
+      and turning "it should work" into reality under production pressure.
+    </p>
+  </section>
+
+  <!-- ── AI Projects ── -->
+  <section>
+    <h2>AI Projects</h2>
+    <div class="job" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0;">
+      <div class="job-header">
+        <span class="company">Autonomous Infrastructure Monitoring System</span>
+        <span class="period">2025 – Present</span>
+      </div>
+      <div class="role">Rakuten Group, Inc.</div>
+      <ul>
+        <li>Designed and built a fully autonomous AI-powered monitoring system covering the complete infrastructure stack: GCP services, Kubernetes, databases, storage, load balancers, application logs, and TLS certificates.</li>
+        <li>Built on Gemini; continuously aggregates and correlates signals across all infrastructure layers, detects anomalies, and operates without manual intervention — reducing alert fatigue and improving incident response time.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Skills ── -->
+  <section>
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <span class="label">Orchestration</span>
+      <div class="tags">
+        <span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Argo Rollouts</span><span class="tag">KEDA</span>
+      </div>
+
+      <span class="label">Cloud Platforms</span>
+      <div class="tags">
+        <span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Azure</span><span class="tag">On-Premises</span>
+      </div>
+
+      <span class="label">Google Cloud</span>
+      <div class="tags">
+        <span class="tag">GKE</span><span class="tag">GKE Autopilot</span><span class="tag">BigQuery</span>
+        <span class="tag">Cloud Run</span><span class="tag">Cloud Spanner</span><span class="tag">Cloud SQL</span>
+        <span class="tag">Pub/Sub</span><span class="tag">Dataflow</span><span class="tag">Cloud Build</span>
+        <span class="tag">Cloud Scheduler</span>
+      </div>
+
+      <span class="label">IaC &amp; CI/CD</span>
+      <div class="tags">
+        <span class="tag">Terraform</span><span class="tag">Helm</span><span class="tag">ArgoCD</span>
+        <span class="tag">Ansible</span><span class="tag">Jenkins</span>
+      </div>
+
+      <span class="label">Observability</span>
+      <div class="tags">
+        <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">OpenTelemetry</span>
+        <span class="tag">Datadog</span><span class="tag">Elasticsearch</span><span class="tag">Jaeger</span>
+        <span class="tag">PagerDuty</span><span class="tag">Thanos</span>
+      </div>
+
+      <span class="label">Networking</span>
+      <div class="tags">
+        <span class="tag">Istio</span><span class="tag">Nginx</span><span class="tag">HAProxy</span>
+      </div>
+
+      <span class="label">Data &amp; Messaging</span>
+      <div class="tags">
+        <span class="tag">Kafka</span><span class="tag">Redis</span><span class="tag">MySQL</span>
+        <span class="tag">Cassandra</span><span class="tag">Astra DB</span><span class="tag">ETCD</span>
+      </div>
+
+      <span class="label">AI &amp; Automation</span>
+      <div class="tags">
+        <span class="tag">Gemini API</span><span class="tag">AI-powered monitoring</span>
+        <span class="tag">Autonomous systems</span><span class="tag">Anomaly detection</span>
+      </div>
+
+      <span class="label">Programming</span>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Groovy</span>
+        <span class="tag">C#</span><span class="tag">Lua</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Experience ── -->
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="company">Rakuten Group, Inc.</span>
+        <span class="period">Feb 2026 – Present</span>
+      </div>
+      <div class="role">Vice Manager, Platform SRE Group</div>
+      <div class="location">Tokyo, Japan</div>
+      <ul>
+        <li>Managing two platform engineering teams (~20 engineers each) — Rakuten Point (peak 80,000 RPS) and Rakuten Coupon (peak 60,000 RPS) — overseeing day-to-day operations, release quality, and team performance.</li>
+        <li>Driving engineering excellence: establishing release processes, conducting code and architecture reviews, and raising the technical bar across both teams.</li>
+        <li>Continuing hands-on architecture work in parallel with management — currently leading architecture of a Points &amp; Campaign platform for Telkomsel (Indonesia's largest telco, 169M subscribers), the largest system of this kind built at Rakuten.</li>
+        <li>Leading hiring: conducting technical interviews, defining evaluation criteria, and growing the team with strong engineering talent.</li>
+        <li>Designed fully autonomous scaling across the stack — GKE Autopilot, KEDA (traffic-driven), and Cloud Spanner autoscaling — eliminating the need for capacity planning or manual intervention entirely.</li>
+        <li>Leading blameless postmortem culture across both teams, driving systemic improvements over individual blame.</li>
+        <li>Resolving complex production incidents hands-on; providing Tier-1 on-call support with zero customer impact across multiple platforms.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="company">Rakuten Group, Inc.</span>
+        <span class="period">Oct 2023 – Feb 2026</span>
+      </div>
+      <div class="role">Senior Technology Architect</div>
+      <div class="location">Tokyo, Japan</div>
+      <ul>
+        <li>Architected an autonomous Point System for Japan Post (Yucho Points, millions of users) on GCP from scratch — GKE MultiCluster Gateway, Cloud SQL, Spanner, BigQuery, Dataflow — fully Terraform-managed; self-operating with minimal maintenance.</li>
+        <li>Designed a Business Intelligence pipeline (Apache Astra → Cloud Spanner → BigQuery) federated for downstream AWS Glue analysis.</li>
+        <li>Implemented Canary Releases across multiple platforms using Argo Rollouts with Kayenta-style analysis, gradual traffic shifting via Gateway API/Istio, and automated rollbacks.</li>
+        <li>Introduced event-driven autoscaling across multiple platforms, cutting infrastructure costs by over 50% with no performance impact.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="company">Rakuten Group, Inc.</span>
+        <span class="period">May 2022 – Oct 2023</span>
+      </div>
+      <div class="role">Solutions Architect &amp; Architect Team Lead</div>
+      <div class="location">Dalian, China → Tokyo, Japan</div>
+      <ul>
+        <li>Led live traffic migration from legacy HAProxy (with complex Lua-based routing logic) to the new One Point Platform — executed under full production load with zero downtime.</li>
+        <li>Implemented AKS cluster autoscaling and QPS-based HPA, minimizing standby costs while enabling rapid failover.</li>
+        <li>Built a traffic mirroring framework to validate production traffic in pre-production before go-live.</li>
+        <li>Implemented Istio-based rate limiting to protect legacy systems under high concurrency.</li>
+        <li>Delivered full-stack observability using OpenTelemetry, Jaeger, and Elasticsearch across Istio, APIs, workers, and batch systems.</li>
+        <li>Diagnosed and resolved critical production issues: Cassandra LWT bottlenecks, AKS performance degradation (2× QPS gain), Tombstone overloads via automated compaction pipelines.</li>
+        <li>Built a smart Kubernetes sidecar controller dynamically adjusting CronJob schedules based on Kafka lag and system dependencies.</li>
+        <li>Developed incident-driven automation for self-healing failed transactions and automatic impact reporting.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="company">Rakuten Group, Inc.</span>
+        <span class="period">Mar 2021 – May 2022</span>
+      </div>
+      <div class="role">Associate DevOps Architect</div>
+      <div class="location">Dalian, China</div>
+      <ul>
+        <li>Built and managed a hybrid Kubernetes cluster for CI/CD, monitoring, artifact storage, and container registry across on-prem and cloud.</li>
+        <li>Designed a hybrid monitoring platform (AKS + on-premises) using Prometheus and Thanos — adopted company-wide as the standard observability solution.</li>
+        <li>Developed fully automated DevSecOps pipelines integrating Vault, Jenkins, ArgoCD, SonarQube, Harbor, and Trivy.</li>
+        <li>Implemented IaC for Rakuten Points using Terraform, Ansible, and Python for on-demand provisioning and teardown.</li>
+        <li>Deployed a Chaos Engineering platform for resilience testing across multiple Kubernetes clusters.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="company">Rakuten Group, Inc.</span>
+        <span class="period">May 2020 – Mar 2021</span>
+      </div>
+      <div class="role">SRE / DevOps Engineer</div>
+      <div class="location">Dalian, China</div>
+      <ul>
+        <li>Built a hybrid Kubernetes cluster spanning OneCloud and Azure for the Point Pilot Release.</li>
+        <li>Containerized all Kotlin applications and developed Kubernetes manifests for Deployments and CronJobs.</li>
+        <li>Developed the first centralized monitoring and logging platform for One Point using FluentD, Kafka, Logstash, and ELK.</li>
+        <li>Built shared Helm charts and Groovy libraries to standardize CI/CD workflows across multiple projects.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="company">Aspect Software, Inc.</span>
+        <span class="period">May 2014 – May 2020</span>
+      </div>
+      <div class="role">Engineer QA → Senior Software QA Engineer → Principal Automation Engineer</div>
+      <div class="location">Dalian, China</div>
+      <ul>
+        <li>Grew from manual QA to Principal Automation Engineer over 6 years, building CI/CD and test infrastructure from the ground up.</li>
+        <li>Designed a scalable Jenkins-based automation framework integrating 100+ QA suites with real-time reporting via ReportPortal.</li>
+        <li>Built CI/CD pipelines integrating Jenkins with AWS, Bitbucket, Slack, Datadog, and Sumo Logic; provisioned test environments via Terraform and AWS Lambda.</li>
+        <li>Developed automated API tests using C# and Selenium; built logging and monitoring pipelines using Datadog, Sumo Logic, and Grafana.</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ── Education + Languages ── -->
+  <div class="two-col">
+    <section>
+      <h2>Education</h2>
+      <div class="simple-list">
+        <div class="item">
+          <span class="name">Dalian University of Technology</span>
+          <span class="detail">2008 – 2013</span>
+        </div>
+        <div class="item">
+          <span class="detail">B.A. Chinese Language and Literature</span>
+        </div>
+        <div class="item">
+          <span class="detail" style="font-style: italic;">Self-taught in engineering and platform architecture.</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <div class="simple-list">
+        <div class="item"><span class="name">Russian</span><span class="detail">Native</span></div>
+        <div class="item"><span class="name">Chinese (Mandarin)</span><span class="detail">Native or Bilingual</span></div>
+        <div class="item"><span class="name">English</span><span class="detail">Full professional</span></div>
+      </div>
+    </section>
+  </div>
+
+</div>
+</body>
+</html>
