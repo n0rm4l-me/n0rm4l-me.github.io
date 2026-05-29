@@ -74,6 +74,23 @@
     .meta a:hover { text-decoration: underline; }
     .meta .sep { color: var(--border); user-select: none; pointer-events: none; }
 
+    .header-top {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .header-top .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .header-top .header-text { flex: 1; }
+
     /* ── Sections ── */
     section { margin-bottom: var(--section-gap); }
 
@@ -195,8 +212,13 @@
 
   <!-- ── Header ── -->
   <header>
-    <h1>Petr Petrenko</h1>
-    <div class="title">Engineering Manager &amp; Platform Architect · Vice Manager, Platform SRE Group · Rakuten Group, Inc.</div>
+    <div class="header-top">
+      <img class="avatar" src="https://github.com/n0rm4l-me.png" alt="Petr Petrenko" />
+      <div class="header-text">
+        <h1>Petr Petrenko</h1>
+        <div class="title">Engineering Manager &amp; Platform Architect<br>Vice Manager, Platform SRE Group · Rakuten Group, Inc.</div>
+      </div>
+    </div>
     <div class="meta">
       <div class="meta-row">
         <span>📍 Tokyo, Japan</span>
