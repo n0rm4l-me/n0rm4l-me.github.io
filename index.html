@@ -199,6 +199,15 @@
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; }
 
     /* ── Print ── */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--border);
+      text-align: center;
+    }
+
     @media print {
       body { padding: 1.5cm; font-size: 13px; }
       .container { max-width: 100%; }
@@ -469,5 +478,9 @@
   </div>
 
 </div>
+
+<footer>
+  <p>This site uses Google Analytics to collect anonymous visit statistics.</p>
+</footer>
 </body>
 </html>
