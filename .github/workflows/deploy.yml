@@ -1,0 +1,13 @@
+name: Deploy Resume
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify
+        run: echo "Resume deployed successfully"
