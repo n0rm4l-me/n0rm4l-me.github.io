@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Petr Petrenko — Engineering Manager & Platform Architect</title>
+  <meta name="description" content="Engineering Manager & Platform Architect with 10+ years building cloud-native systems at scale. Vice Manager, Platform SRE Group at Rakuten Group, Inc." />
+  <meta property="og:title" content="Petr Petrenko — Engineering Manager & Platform Architect" />
+  <meta property="og:description" content="Managing platform teams at Rakuten handling 80,000 RPS. Specialized in Kubernetes, GCP, and autonomous systems. Open to relocation in Europe." />
+  <meta property="og:url" content="https://n0rm4l-me.github.io" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:image" content="https://github.com/n0rm4l-me.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Petr Petrenko — Engineering Manager & Platform Architect" />
+  <meta name="twitter:description" content="Managing platform teams at Rakuten handling 80,000 RPS. Open to relocation in Europe." />
+  <meta name="twitter:image" content="https://github.com/n0rm4l-me.png" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B3FETN22E"></script>
   <script>
@@ -208,6 +218,29 @@
       text-align: center;
     }
 
+    .uptime {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .uptime-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 0 rgba(34,197,94,0.6);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); }
+      70%  { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+
     @media print {
       body { padding: 1.5cm; font-size: 13px; }
       .container { max-width: 100%; }
@@ -248,6 +281,8 @@
         <a href="https://linkedin.com/in/n0rm4l" target="_blank">linkedin.com/in/n0rm4l</a>
         <span class="sep">·</span>
         <a href="https://github.com/n0rm4l-me" target="_blank">github.com/n0rm4l-me</a>
+        <span class="sep">·</span>
+        <span class="uptime"><span class="uptime-dot"></span><span id="uptime-counter"></span></span>
       </div>
     </div>
   </header>
@@ -449,6 +484,20 @@
 
   </section>
 
+  <!-- ── Hobbies ── -->
+  <section>
+    <h2>Interests</h2>
+    <div class="tags">
+      <span class="tag">Gym</span>
+      <span class="tag">Cycling</span>
+      <span class="tag">Long walks</span>
+      <span class="tag">Music</span>
+      <span class="tag">Movies</span>
+      <span class="tag">Cooking</span>
+      <span class="tag">Reading</span>
+    </div>
+  </section>
+
   <!-- ── Education + Languages ── -->
   <div class="two-col">
     <section>
@@ -478,6 +527,24 @@
   </div>
 
 </div>
+
+<script>
+  function updateUptime() {
+    const start = new Date('2014-05-01T00:00:00Z');
+    const now = new Date();
+    const diff = now - start;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    const years = Math.floor(days / 365);
+    const remainingDays = days % 365;
+    document.getElementById('uptime-counter').textContent =
+      `Career uptime: ${years}y ${remainingDays}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+  updateUptime();
+  setInterval(updateUptime, 1000);
+</script>
 
 <footer>
   <p>This site uses Google Analytics to collect anonymous visit statistics.</p>
