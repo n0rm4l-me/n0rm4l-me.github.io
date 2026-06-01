@@ -1,0 +1,96 @@
+
+╔══════════════════════════════════════════════════════════════╗
+║               PETR PETRENKO                                  ║
+║               Engineering Manager & Platform Architect       ║
+║               Vice Manager, Platform SRE Group               ║
+║               Rakuten Group, Inc. — Tokyo, Japan             ║
+╚══════════════════════════════════════════════════════════════╝
+
+  📍 Open to relocation: Europe (Spain, France)
+  📧 n0ctrl.void@gmail.com
+  🔗 linkedin.com/in/n0rm4l
+  🐙 github.com/n0rm4l-me
+  🌐 n0rm4l-me.github.io
+
+──────────────────────────────────────────────────────────────
+  PROFILE
+──────────────────────────────────────────────────────────────
+
+  Engineering leader and platform architect with 10+ years
+  building cloud-native systems at scale. Managing two platform
+  teams at Rakuten (Point & Coupon) handling peaks of up to
+  80,000 RPS. Strong believer in autonomous systems over
+  automation. Built an AI-powered monitoring system on Gemini
+  that runs fully autonomously across the entire stack.
+
+──────────────────────────────────────────────────────────────
+  EXPERIENCE
+──────────────────────────────────────────────────────────────
+
+  Rakuten Group, Inc.                          Feb 2026–Present
+  Vice Manager, Platform SRE Group
+  Tokyo, Japan
+
+    • Managing 2 teams (~20 engineers each)
+      — Rakuten Point (peak 80,000 RPS)
+      — Rakuten Coupon (peak 60,000 RPS)
+    • Leading architecture of Telkomsel platform
+      (Indonesia's largest telco, 169M subscribers)
+    • Autonomous AI monitoring system on Gemini
+    • Blameless postmortem culture
+    • Tier-1 on-call, zero customer impact
+
+  Rakuten Group, Inc.                          Oct 2023–Feb 2026
+  Senior Technology Architect
+  Tokyo, Japan
+
+    • Architected Japan Post Point System (GCP, GKE, Spanner,
+      BigQuery, Dataflow) — millions of users, self-operating
+    • Canary releases with Argo Rollouts + Istio
+    • 50%+ infrastructure cost reduction via event-driven scaling
+
+  Rakuten Group, Inc.                          May 2022–Oct 2023
+  Solutions Architect & Architect Team Lead
+  Dalian, China → Tokyo, Japan
+
+    • Live HAProxy migration (Lua routing) under production load
+    • Full-stack observability: OpenTelemetry, Jaeger, ES
+    • 2× QPS improvement on AKS
+    • Smart Kubernetes sidecar controller (Kafka-lag based)
+
+  Rakuten Group, Inc.                          Mar 2021–May 2022
+  Associate DevOps Architect — Dalian, China
+
+  Rakuten Group, Inc.                          May 2020–Mar 2021
+  SRE / DevOps Engineer — Dalian, China
+
+  Aspect Software, Inc.                        May 2014–May 2020
+  Engineer QA → Senior QA → Principal Automation Engineer
+  Dalian, China
+
+──────────────────────────────────────────────────────────────
+  SKILLS
+──────────────────────────────────────────────────────────────
+
+  Kubernetes  Docker  KEDA  Argo Rollouts
+  GCP  AWS  Azure  GKE  GKE Autopilot
+  Spanner  BigQuery  Cloud Run  Dataflow  PSC  Interconnect
+  Terraform  Helm  ArgoCD  Ansible  Jenkins
+  Prometheus  Grafana  OpenTelemetry  Datadog  PagerDuty
+  Istio  Nginx  HAProxy
+  Kafka  Cassandra  Redis  MySQL  etcd
+  Gemini API  Python  Bash  Lua
+
+──────────────────────────────────────────────────────────────
+  LANGUAGES
+──────────────────────────────────────────────────────────────
+
+  Russian  — Native
+  Chinese  — Native / Bilingual
+  English  — Full professional
+
+──────────────────────────────────────────────────────────────
+
+  > sudo hire petr
+
+──────────────────────────────────────────────────────────────
