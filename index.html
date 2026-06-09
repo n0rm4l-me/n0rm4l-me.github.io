@@ -304,6 +304,9 @@
       themselves without human intervention. Built an AI-powered monitoring system on Gemini that runs fully
       autonomously across the entire infrastructure stack. Specialized in Kubernetes, IaC, observability,
       and turning "it should work" into reality under production pressure.
+      Author of <a href="https://github.com/n0rm4l-me/spanner-etcd" target="_blank">spanner-etcd</a> —
+      open source drop-in etcd replacement backed by Google Cloud Spanner (15× write throughput, 24h K8s soak test).
+      Contributor to <a href="https://github.com/kedacore/keda/pull/7844" target="_blank">KEDA</a> (GCP Spanner scaler).
     </p>
   </section>
 
@@ -322,6 +325,42 @@
         <li>Operates fully autonomously in production for Japan Post platform (Yucho Points) — zero manual configuration required after deployment.</li>
       </ul>
     </div>
+  </section>
+
+  <!-- ── Open Source ── -->
+  <section>
+    <h2>Open Source</h2>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="company"><a href="https://github.com/n0rm4l-me/spanner-etcd" target="_blank">spanner-etcd</a></span>
+        <span class="period">2026</span>
+      </div>
+      <div class="role">Author · Apache 2.0 · Go</div>
+      <div class="location">Drop-in etcd v3 replacement backed by Google Cloud Spanner</div>
+      <ul>
+        <li>PENDING_COMMIT_TIMESTAMP revision — eliminates the global write lock, <strong>15× throughput at ×32 concurrency</strong></li>
+        <li>Spanner Change Streams for Watch — <strong>~30ms end-to-end latency</strong></li>
+        <li>Covering index optimization — <strong>+167% mixed workload performance</strong></li>
+        <li>Validated: Kubernetes v1.33.12, 24h soak test, zero crashes, zero data loss</li>
+        <li>Directed reads support for multi-region Spanner deployments (<code>--spanner-read-location</code>)</li>
+      </ul>
+    </div>
+
+    <div class="job" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0;">
+      <div class="job-header">
+        <span class="company"><a href="https://github.com/kedacore/keda/pull/7844" target="_blank">KEDA</a></span>
+        <span class="period">2026</span>
+      </div>
+      <div class="role">Contributor · ⭐ 16K+</div>
+      <div class="location">GCP Cloud Spanner scaler</div>
+      <ul>
+        <li>New <code>gcp-spanner</code> trigger — scales Kubernetes workloads from Spanner SQL query results</li>
+        <li>Supports Workload Identity Federation, service account JSON, env-based credentials</li>
+        <li>14 unit tests + 6 integration tests (emulator) + e2e tests</li>
+      </ul>
+    </div>
+
   </section>
 
   <!-- ── Skills ── -->
@@ -380,7 +419,7 @@
 
       <span class="label">Programming</span>
       <div class="tags">
-        <span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Groovy</span>
+        <span class="tag">Go</span><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Groovy</span>
         <span class="tag">C#</span><span class="tag">Lua</span>
       </div>
     </div>
