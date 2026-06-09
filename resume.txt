@@ -23,6 +23,10 @@
   automation. Built an AI-powered monitoring system on Gemini
   that runs fully autonomously across the entire stack.
 
+  Author of spanner-etcd — open source drop-in etcd replacement
+  backed by Google Cloud Spanner (15× write throughput, 24h K8s
+  soak test). Contributor to KEDA (GCP Spanner scaler).
+
 ──────────────────────────────────────────────────────────────
   EXPERIENCE
 ──────────────────────────────────────────────────────────────
@@ -67,6 +71,26 @@
   Aspect Software, Inc.                        May 2014–May 2020
   Engineer QA → Senior QA → Principal Automation Engineer
   Dalian, China
+
+──────────────────────────────────────────────────────────────
+  OPEN SOURCE
+──────────────────────────────────────────────────────────────
+
+  spanner-etcd                        github.com/n0rm4l-me/spanner-etcd
+  Drop-in etcd v3 replacement backed by Google Cloud Spanner
+
+    • PENDING_COMMIT_TIMESTAMP revision — 15× write throughput at ×32 concurrency
+    • Spanner Change Streams for Watch — ~30ms end-to-end latency
+    • Covering index optimization — +167% mixed workload performance
+    • Validated: Kubernetes v1.33.12, 24h soak test, zero errors
+    • Apache 2.0 · Go · ghcr.io/n0rm4l-me/spanner-etcd:v0.1.0
+
+  KEDA (kedacore/keda)                github.com/kedacore/keda/pull/7844
+  Contributor — GCP Cloud Spanner scaler (⭐ 16K+)
+
+    • New gcp-spanner trigger: scales workloads from Spanner SQL query results
+    • Supports WIF, service account JSON, env-based credentials
+    • 14 unit tests + 6 integration tests (emulator) + e2e tests
 
 ──────────────────────────────────────────────────────────────
   SKILLS
