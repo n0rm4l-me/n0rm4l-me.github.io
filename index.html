@@ -284,7 +284,7 @@
         <span class="uptime"><span class="uptime-dot"></span><span id="uptime-counter"></span></span>
       </div>
       <div class="meta-row">
-        <a href="mailto:n0ctrl.void@gmail.com">n0ctrl.void@gmail.com</a>
+        <a id="email-link" href="#"></a>
         <span class="sep">·</span>
         <a href="https://linkedin.com/in/n0rm4l" target="_blank">linkedin.com/in/n0rm4l</a>
         <span class="sep">·</span>
@@ -574,10 +574,15 @@
 </div>
 
 <script>
+  (function() {
+    var u = ['n0ctrl', '.void', '@gmail', '.com'].join('');
+    var el = document.getElementById('email-link');
+    el.href = 'mailto:' + u;
+    el.textContent = u;
+  })();
+
   // Easter egg — DevTools console
   console.log('%c👋 Hey, you found the terminal.', 'font-size:16px; font-weight:bold; color:#0057ff;');
-  console.log('%cWant the curl version?', 'font-size:13px; color:#777;');
-  console.log('%c  curl -L n0rm4l-me.github.io/resume.txt', 'font-family:monospace; font-size:13px; color:#22c55e; background:#f2f2f2; padding:4px 8px; border-radius:4px;');
   console.log('%c> sudo hire petr', 'font-family:monospace; font-size:13px; color:#0057ff;');
 
   function updateUptime() {
