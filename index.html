@@ -25,24 +25,27 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #ffffff;
-      --text: #1a1a1a;
-      --muted: #777777;
-      --accent: #0057ff;
-      --border: #e4e4e4;
-      --tag-bg: #f2f2f2;
-      --tag-text: #333333;
+      --bg: #0a0e1a;
+      --surface: #0f1729;
+      --border: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+      --accent-dim: rgba(34, 211, 238, 0.5);
+      --tag-border: rgba(34, 211, 238, 0.18);
+      --mono: 'JetBrains Mono', monospace;
       --section-gap: 2.75rem;
     }
 
     body {
       font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       background: var(--bg);
+      background-image: radial-gradient(ellipse at 20% 0%, rgba(34, 211, 238, 0.04) 0%, transparent 55%);
       color: var(--text);
       line-height: 1.65;
       font-size: 15px;
@@ -51,9 +54,9 @@
 
     .container { max-width: 860px; margin: 0 auto; }
 
-    /* ── Header ── */
+    /* Header */
     header {
-      border-bottom: 2px solid var(--text);
+      border-bottom: 1px solid var(--border);
       padding-bottom: 1.5rem;
       margin-bottom: var(--section-gap);
     }
@@ -63,6 +66,7 @@
       font-weight: 700;
       letter-spacing: -0.5px;
       line-height: 1.1;
+      color: var(--text);
     }
 
     header .title {
@@ -76,8 +80,8 @@
     .meta {
       display: flex;
       flex-direction: column;
-      gap: 0.3rem;
-      margin-top: 0.85rem;
+      gap: 0.35rem;
+      margin-top: 0.9rem;
       font-size: 0.85rem;
       color: var(--muted);
     }
@@ -106,32 +110,44 @@
       border-radius: 50%;
       object-fit: cover;
       flex-shrink: 0;
+      border: 2px solid var(--border);
     }
 
     .header-top .header-text { flex: 1; }
 
-    /* ── Sections ── */
+    /* Sections */
     section { margin-bottom: var(--section-gap); }
 
     section h2 {
-      font-size: 0.68rem;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--accent);
+      opacity: 0.75;
       margin-bottom: 1.1rem;
-      padding-bottom: 0.4rem;
+      padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--border);
     }
 
-    /* ── Summary ── */
+    section h2::before {
+      content: '// ';
+      opacity: 0.55;
+      font-weight: 400;
+    }
+
+    /* Summary */
     .summary p {
       color: var(--text);
       font-size: 0.95rem;
-      line-height: 1.7;
+      line-height: 1.72;
     }
 
-    /* ── Experience ── */
+    .summary a { color: var(--accent); text-decoration: none; }
+    .summary a:hover { text-decoration: underline; }
+
+    /* Jobs (Experience) */
     .job {
       margin-bottom: 2rem;
       padding-bottom: 2rem;
@@ -139,6 +155,99 @@
     }
 
     .job:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+    /* Multi-role company block */
+    .company-block {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .company-block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+    .company-block .company-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .company-block .company-tenure {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .company-block .roles {
+      border-left: 2px solid var(--border);
+      padding-left: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .role-entry .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .role-entry .role {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .role-entry .period {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .role-entry .location { font-size: 0.77rem; color: var(--muted); margin-bottom: 0.5rem; }
+
+    .role-entry ul { list-style: none; padding: 0; }
+
+    .role-entry ul li {
+      padding-left: 1.1rem;
+      position: relative;
+      margin-bottom: 0.3rem;
+      font-size: 0.87rem;
+      color: #cbd5e1;
+      line-height: 1.6;
+    }
+
+    .role-entry ul li::before { content: '–'; position: absolute; left: 0; color: var(--accent-dim); }
+
+    .role-entry ul li strong { color: var(--accent); font-weight: 600; }
+
+    .role-entry ul li code {
+      font-family: var(--mono);
+      font-size: 0.82em;
+      color: var(--accent);
+      background: rgba(34, 211, 238, 0.08);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+    }
+
+    /* OSS cards */
+    .oss-section .job {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem 1.25rem 1rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .oss-section .job:last-child {
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 0;
+    }
 
     .job-header {
       display: flex;
@@ -148,14 +257,22 @@
       gap: 0.25rem;
     }
 
-    .job-header .company { font-weight: 700; font-size: 1rem; }
-    .job-header .period { font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+    .job-header .company { font-weight: 700; font-size: 1rem; color: var(--text); }
+    .job-header .company a { color: var(--text); text-decoration: none; }
+    .job-header .company a:hover { color: var(--accent); }
+
+    .job-header .period {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
 
     .job .role {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--accent);
       margin: 0.2rem 0;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .job .location { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.7rem; }
@@ -167,13 +284,24 @@
       position: relative;
       margin-bottom: 0.35rem;
       font-size: 0.88rem;
-      color: #2a2a2a;
+      color: #cbd5e1;
       line-height: 1.6;
     }
 
-    .job ul li::before { content: '–'; position: absolute; left: 0; color: var(--muted); }
+    .job ul li::before { content: '–'; position: absolute; left: 0; color: var(--accent-dim); }
 
-    /* ── Skills ── */
+    .job ul li strong { color: var(--accent); font-weight: 600; }
+
+    .job ul li code {
+      font-family: var(--mono);
+      font-size: 0.82em;
+      color: var(--accent);
+      background: rgba(34, 211, 238, 0.08);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+    }
+
+    /* Skills */
     .skills-grid {
       display: grid;
       grid-template-columns: 150px 1fr;
@@ -181,20 +309,34 @@
       align-items: start;
     }
 
-    .skills-grid .label { color: var(--muted); font-size: 0.83rem; font-weight: 500; padding-top: 0.25rem; }
+    .skills-grid .label {
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 500;
+      padding-top: 0.3rem;
+    }
 
     .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
 
     .tag {
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      font-size: 0.78rem;
-      font-weight: 500;
+      border: 1px solid var(--tag-border);
+      color: var(--muted);
+      background: transparent;
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 400;
+      transition: border-color 0.15s, color 0.15s;
+      cursor: default;
     }
 
-    /* ── Education / Languages ── */
+    .tag:hover {
+      border-color: rgba(34, 211, 238, 0.45);
+      color: var(--accent);
+    }
+
+    /* Education / Languages */
     .simple-list { font-size: 0.88rem; display: flex; flex-direction: column; gap: 0.4rem; }
 
     .simple-list .item {
@@ -209,44 +351,63 @@
 
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; }
 
-    /* ── Print ── */
+    /* Uptime — terminal style */
+    .uptime {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    .uptime::before {
+      content: '> ';
+      color: var(--muted);
+      margin-right: 0.15em;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 0.45em;
+      height: 0.88em;
+      background: var(--accent);
+      margin-left: 3px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
     footer {
       margin-top: 3rem;
       padding-top: 1rem;
       border-top: 1px solid var(--border);
       font-size: 0.75rem;
-      color: var(--border);
-      text-align: center;
-    }
-
-    .uptime {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.85rem;
       color: var(--muted);
-    }
-
-    .uptime-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 0 0 rgba(34,197,94,0.6);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); }
-      70%  { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
-      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+      text-align: center;
+      opacity: 0.4;
     }
 
     @media print {
-      body { padding: 1.5cm; font-size: 13px; }
+      :root {
+        --bg: #ffffff;
+        --surface: #f8fafc;
+        --border: #e2e8f0;
+        --text: #0f172a;
+        --muted: #64748b;
+        --accent: #0369a1;
+        --accent-dim: #0369a1;
+        --tag-border: #cbd5e1;
+      }
+      body { padding: 1.5cm; font-size: 13px; background-image: none; }
       .container { max-width: 100%; }
       a { color: inherit; text-decoration: none; }
-      .job { border-bottom: 1px solid #ddd; }
+      .cursor { display: none; }
+      section h2::before { content: ''; }
+      .oss-section .job { background: none; }
     }
 
     @media (max-width: 600px) {
@@ -261,7 +422,7 @@
 <body>
 <div class="container">
 
-  <!-- ── Header ── -->
+  <!-- Header -->
   <header>
     <div class="header-top">
       <img class="avatar" src="https://github.com/n0rm4l-me.png" alt="Petr Petrenko" />
@@ -281,7 +442,7 @@
           <img src="https://github.com/n0rm4l-me/n0rm4l-me.github.io/actions/workflows/deploy.yml/badge.svg" alt="Deploy status" style="height:16px; display:block;" />
         </a>
         <span class="sep">·</span>
-        <span class="uptime"><span class="uptime-dot"></span><span id="uptime-counter"></span></span>
+        <span class="uptime"><span id="uptime-counter"></span><span class="cursor" aria-hidden="true"></span></span>
       </div>
       <div class="meta-row">
         <a id="email-link" href="#"></a>
@@ -293,7 +454,7 @@
     </div>
   </header>
 
-  <!-- ── Summary ── -->
+  <!-- Summary -->
   <section class="summary">
     <h2>Profile</h2>
     <p>
@@ -310,7 +471,7 @@
     </p>
   </section>
 
-  <!-- ── AI Projects ── -->
+  <!-- AI Projects -->
   <section>
     <h2>AI Projects</h2>
     <div class="job" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0;">
@@ -327,8 +488,8 @@
     </div>
   </section>
 
-  <!-- ── Open Source ── -->
-  <section>
+  <!-- Open Source -->
+  <section class="oss-section">
     <h2>Open Source</h2>
 
     <div class="job">
@@ -386,7 +547,7 @@
       </ul>
     </div>
 
-    <div class="job" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0;">
+    <div class="job">
       <div class="job-header">
         <span class="company"><a href="https://github.com/kedacore/keda/pull/7844" target="_blank">KEDA</a></span>
         <span class="period">2026</span>
@@ -402,7 +563,7 @@
 
   </section>
 
-  <!-- ── Skills ── -->
+  <!-- Skills -->
   <section>
     <h2>Skills</h2>
     <div class="skills-grid">
@@ -464,111 +625,138 @@
     </div>
   </section>
 
-  <!-- ── Experience ── -->
+  <!-- Experience -->
   <section>
     <h2>Experience</h2>
 
-    <div class="job">
-      <div class="job-header">
-        <span class="company">Rakuten Group, Inc.</span>
-        <span class="period">Feb 2026 – Present</span>
+    <div class="company-block">
+      <div class="company-name">Rakuten Group, Inc.</div>
+      <div class="company-tenure">May 2020 – Present · Tokyo, Japan &amp; Dalian, China</div>
+      <div class="roles">
+
+        <div class="role-entry">
+          <div class="role-header">
+            <span class="role">Vice Manager, Platform SRE Group</span>
+            <span class="period">Feb 2026 – Present</span>
+          </div>
+          <div class="location">Tokyo, Japan</div>
+          <ul>
+            <li>Managing two platform engineering teams (~20 engineers each) — Rakuten Point (peak 80,000 RPS) and Rakuten Coupon (peak 60,000 RPS) — overseeing day-to-day operations, release quality, and team performance.</li>
+            <li>Driving engineering excellence: establishing release processes, conducting code and architecture reviews, and raising the technical bar across both teams.</li>
+            <li>Continuing hands-on architecture work in parallel with management — currently leading architecture of a Points &amp; Campaign platform for Telkomsel (Indonesia's largest telco, 169M subscribers), the largest system of this kind built at Rakuten.</li>
+            <li>Leading hiring: conducting technical interviews, defining evaluation criteria, and growing the team with strong engineering talent.</li>
+            <li>Designed fully autonomous scaling across the stack — GKE Autopilot, KEDA (traffic-driven), and Cloud Spanner autoscaling — eliminating the need for capacity planning or manual intervention entirely.</li>
+            <li>Leading blameless postmortem culture across both teams, driving systemic improvements over individual blame.</li>
+            <li>Resolving complex production incidents hands-on; providing Tier-1 on-call support with zero customer impact across multiple platforms.</li>
+          </ul>
+        </div>
+
+        <div class="role-entry">
+          <div class="role-header">
+            <span class="role">Senior Technology Architect</span>
+            <span class="period">Oct 2023 – Feb 2026</span>
+          </div>
+          <div class="location">Tokyo, Japan</div>
+          <ul>
+            <li>Architected an autonomous Point System for Japan Post (Yucho Points, millions of users) on GCP from scratch — GKE MultiCluster Gateway, Cloud SQL, Spanner, BigQuery, Dataflow — fully Terraform-managed; self-operating with minimal maintenance.</li>
+            <li>Designed a Business Intelligence pipeline (Apache Astra → Cloud Spanner → BigQuery) federated for downstream AWS Glue analysis.</li>
+            <li>Implemented Canary Releases across multiple platforms using Argo Rollouts with Kayenta-style analysis, gradual traffic shifting via Gateway API/Istio, and automated rollbacks.</li>
+            <li>Introduced event-driven autoscaling across multiple platforms, cutting infrastructure costs by over 50% with no performance impact.</li>
+          </ul>
+        </div>
+
+        <div class="role-entry">
+          <div class="role-header">
+            <span class="role">Solutions Architect &amp; Architect Team Lead</span>
+            <span class="period">May 2022 – Oct 2023</span>
+          </div>
+          <div class="location">Dalian, China → Tokyo, Japan</div>
+          <ul>
+            <li>Led live traffic migration from legacy HAProxy (with complex Lua-based routing logic) to the new One Point Platform — executed under full production load with zero downtime.</li>
+            <li>Implemented AKS cluster autoscaling and QPS-based HPA, minimizing standby costs while enabling rapid failover.</li>
+            <li>Built a traffic mirroring framework to validate production traffic in pre-production before go-live.</li>
+            <li>Implemented Istio-based rate limiting to protect legacy systems under high concurrency.</li>
+            <li>Delivered full-stack observability using OpenTelemetry, Jaeger, and Elasticsearch across Istio, APIs, workers, and batch systems.</li>
+            <li>Diagnosed and resolved critical production issues: Cassandra LWT bottlenecks, AKS performance degradation (2× QPS gain), Tombstone overloads via automated compaction pipelines.</li>
+            <li>Built a smart Kubernetes sidecar controller dynamically adjusting CronJob schedules based on Kafka lag and system dependencies.</li>
+            <li>Developed incident-driven automation for self-healing failed transactions and automatic impact reporting.</li>
+          </ul>
+        </div>
+
+        <div class="role-entry">
+          <div class="role-header">
+            <span class="role">Associate DevOps Architect</span>
+            <span class="period">Mar 2021 – May 2022</span>
+          </div>
+          <div class="location">Dalian, China</div>
+          <ul>
+            <li>Built and managed a hybrid Kubernetes cluster for CI/CD, monitoring, artifact storage, and container registry across on-prem and cloud.</li>
+            <li>Designed a hybrid monitoring platform (AKS + on-premises) using Prometheus and Thanos — adopted company-wide as the standard observability solution.</li>
+            <li>Developed fully automated DevSecOps pipelines integrating Vault, Jenkins, ArgoCD, SonarQube, Harbor, and Trivy.</li>
+            <li>Implemented IaC for Rakuten Points using Terraform, Ansible, and Python for on-demand provisioning and teardown.</li>
+            <li>Deployed a Chaos Engineering platform for resilience testing across multiple Kubernetes clusters.</li>
+          </ul>
+        </div>
+
+        <div class="role-entry">
+          <div class="role-header">
+            <span class="role">SRE / DevOps Engineer</span>
+            <span class="period">May 2020 – Mar 2021</span>
+          </div>
+          <div class="location">Dalian, China</div>
+          <ul>
+            <li>Built a hybrid Kubernetes cluster spanning OneCloud and Azure for the Point Pilot Release.</li>
+            <li>Containerized all Kotlin applications and developed Kubernetes manifests for Deployments and CronJobs.</li>
+            <li>Developed the first centralized monitoring and logging platform for One Point using FluentD, Kafka, Logstash, and ELK.</li>
+            <li>Built shared Helm charts and Groovy libraries to standardize CI/CD workflows across multiple projects.</li>
+          </ul>
+        </div>
+
       </div>
-      <div class="role">Vice Manager, Platform SRE Group</div>
-      <div class="location">Tokyo, Japan</div>
-      <ul>
-        <li>Managing two platform engineering teams (~20 engineers each) — Rakuten Point (peak 80,000 RPS) and Rakuten Coupon (peak 60,000 RPS) — overseeing day-to-day operations, release quality, and team performance.</li>
-        <li>Driving engineering excellence: establishing release processes, conducting code and architecture reviews, and raising the technical bar across both teams.</li>
-        <li>Continuing hands-on architecture work in parallel with management — currently leading architecture of a Points &amp; Campaign platform for Telkomsel (Indonesia's largest telco, 169M subscribers), the largest system of this kind built at Rakuten.</li>
-        <li>Leading hiring: conducting technical interviews, defining evaluation criteria, and growing the team with strong engineering talent.</li>
-        <li>Designed fully autonomous scaling across the stack — GKE Autopilot, KEDA (traffic-driven), and Cloud Spanner autoscaling — eliminating the need for capacity planning or manual intervention entirely.</li>
-        <li>Leading blameless postmortem culture across both teams, driving systemic improvements over individual blame.</li>
-        <li>Resolving complex production incidents hands-on; providing Tier-1 on-call support with zero customer impact across multiple platforms.</li>
-      </ul>
     </div>
 
-    <div class="job">
-      <div class="job-header">
-        <span class="company">Rakuten Group, Inc.</span>
-        <span class="period">Oct 2023 – Feb 2026</span>
-      </div>
-      <div class="role">Senior Technology Architect</div>
-      <div class="location">Tokyo, Japan</div>
-      <ul>
-        <li>Architected an autonomous Point System for Japan Post (Yucho Points, millions of users) on GCP from scratch — GKE MultiCluster Gateway, Cloud SQL, Spanner, BigQuery, Dataflow — fully Terraform-managed; self-operating with minimal maintenance.</li>
-        <li>Designed a Business Intelligence pipeline (Apache Astra → Cloud Spanner → BigQuery) federated for downstream AWS Glue analysis.</li>
-        <li>Implemented Canary Releases across multiple platforms using Argo Rollouts with Kayenta-style analysis, gradual traffic shifting via Gateway API/Istio, and automated rollbacks.</li>
-        <li>Introduced event-driven autoscaling across multiple platforms, cutting infrastructure costs by over 50% with no performance impact.</li>
-      </ul>
-    </div>
+    <div class="company-block">
+      <div class="company-name">Aspect Software, Inc.</div>
+      <div class="company-tenure">May 2014 – May 2020 · Dalian, China</div>
+      <div class="roles">
 
-    <div class="job">
-      <div class="job-header">
-        <span class="company">Rakuten Group, Inc.</span>
-        <span class="period">May 2022 – Oct 2023</span>
-      </div>
-      <div class="role">Solutions Architect &amp; Architect Team Lead</div>
-      <div class="location">Dalian, China → Tokyo, Japan</div>
-      <ul>
-        <li>Led live traffic migration from legacy HAProxy (with complex Lua-based routing logic) to the new One Point Platform — executed under full production load with zero downtime.</li>
-        <li>Implemented AKS cluster autoscaling and QPS-based HPA, minimizing standby costs while enabling rapid failover.</li>
-        <li>Built a traffic mirroring framework to validate production traffic in pre-production before go-live.</li>
-        <li>Implemented Istio-based rate limiting to protect legacy systems under high concurrency.</li>
-        <li>Delivered full-stack observability using OpenTelemetry, Jaeger, and Elasticsearch across Istio, APIs, workers, and batch systems.</li>
-        <li>Diagnosed and resolved critical production issues: Cassandra LWT bottlenecks, AKS performance degradation (2× QPS gain), Tombstone overloads via automated compaction pipelines.</li>
-        <li>Built a smart Kubernetes sidecar controller dynamically adjusting CronJob schedules based on Kafka lag and system dependencies.</li>
-        <li>Developed incident-driven automation for self-healing failed transactions and automatic impact reporting.</li>
-      </ul>
-    </div>
+        <div class="role-entry">
+          <div class="role-header">
+            <span class="role">Principal Automation Engineer</span>
+            <span class="period">2018 – May 2020</span>
+          </div>
+          <ul>
+            <li>Designed a scalable Jenkins-based automation framework integrating 100+ QA suites with real-time reporting via ReportPortal.</li>
+            <li>Built CI/CD pipelines integrating Jenkins with AWS, Bitbucket, Slack, Datadog, and Sumo Logic; provisioned test environments via Terraform and AWS Lambda.</li>
+          </ul>
+        </div>
 
-    <div class="job">
-      <div class="job-header">
-        <span class="company">Rakuten Group, Inc.</span>
-        <span class="period">Mar 2021 – May 2022</span>
-      </div>
-      <div class="role">Associate DevOps Architect</div>
-      <div class="location">Dalian, China</div>
-      <ul>
-        <li>Built and managed a hybrid Kubernetes cluster for CI/CD, monitoring, artifact storage, and container registry across on-prem and cloud.</li>
-        <li>Designed a hybrid monitoring platform (AKS + on-premises) using Prometheus and Thanos — adopted company-wide as the standard observability solution.</li>
-        <li>Developed fully automated DevSecOps pipelines integrating Vault, Jenkins, ArgoCD, SonarQube, Harbor, and Trivy.</li>
-        <li>Implemented IaC for Rakuten Points using Terraform, Ansible, and Python for on-demand provisioning and teardown.</li>
-        <li>Deployed a Chaos Engineering platform for resilience testing across multiple Kubernetes clusters.</li>
-      </ul>
-    </div>
+        <div class="role-entry">
+          <div class="role-header">
+            <span class="role">Senior Software QA Engineer</span>
+            <span class="period">2016 – 2018</span>
+          </div>
+          <ul>
+            <li>Developed automated API tests using C# and Selenium; built logging and monitoring pipelines using Datadog, Sumo Logic, and Grafana.</li>
+          </ul>
+        </div>
 
-    <div class="job">
-      <div class="job-header">
-        <span class="company">Rakuten Group, Inc.</span>
-        <span class="period">May 2020 – Mar 2021</span>
-      </div>
-      <div class="role">SRE / DevOps Engineer</div>
-      <div class="location">Dalian, China</div>
-      <ul>
-        <li>Built a hybrid Kubernetes cluster spanning OneCloud and Azure for the Point Pilot Release.</li>
-        <li>Containerized all Kotlin applications and developed Kubernetes manifests for Deployments and CronJobs.</li>
-        <li>Developed the first centralized monitoring and logging platform for One Point using FluentD, Kafka, Logstash, and ELK.</li>
-        <li>Built shared Helm charts and Groovy libraries to standardize CI/CD workflows across multiple projects.</li>
-      </ul>
-    </div>
+        <div class="role-entry">
+          <div class="role-header">
+            <span class="role">Engineer QA</span>
+            <span class="period">May 2014 – 2016</span>
+          </div>
+          <ul>
+            <li>Started in manual QA and grew to Principal Automation Engineer over 6 years, progressively taking ownership of CI/CD and test infrastructure.</li>
+          </ul>
+        </div>
 
-    <div class="job">
-      <div class="job-header">
-        <span class="company">Aspect Software, Inc.</span>
-        <span class="period">May 2014 – May 2020</span>
       </div>
-      <div class="role">Engineer QA → Senior Software QA Engineer → Principal Automation Engineer</div>
-      <div class="location">Dalian, China</div>
-      <ul>
-        <li>Grew from manual QA to Principal Automation Engineer over 6 years, building CI/CD and test infrastructure from the ground up.</li>
-        <li>Designed a scalable Jenkins-based automation framework integrating 100+ QA suites with real-time reporting via ReportPortal.</li>
-        <li>Built CI/CD pipelines integrating Jenkins with AWS, Bitbucket, Slack, Datadog, and Sumo Logic; provisioned test environments via Terraform and AWS Lambda.</li>
-        <li>Developed automated API tests using C# and Selenium; built logging and monitoring pipelines using Datadog, Sumo Logic, and Grafana.</li>
-      </ul>
     </div>
 
   </section>
 
-  <!-- ── Hobbies ── -->
+  <!-- Interests -->
   <section>
     <h2>Interests</h2>
     <div class="tags">
@@ -582,7 +770,7 @@
     </div>
   </section>
 
-  <!-- ── Education + Languages ── -->
+  <!-- Education + Languages -->
   <div class="two-col">
     <section>
       <h2>Education</h2>
@@ -620,9 +808,8 @@
     el.textContent = u;
   })();
 
-  // Easter egg — DevTools console
-  console.log('%c👋 Hey, you found the terminal.', 'font-size:16px; font-weight:bold; color:#0057ff;');
-  console.log('%c> sudo hire petr', 'font-family:monospace; font-size:13px; color:#0057ff;');
+  console.log('%c👋 Hey, you found the terminal.', 'font-size:16px; font-weight:bold; color:#22d3ee;');
+  console.log('%c> sudo hire petr', 'font-family:monospace; font-size:13px; color:#22d3ee;');
 
   function updateUptime() {
     const start = new Date('2014-05-01T00:00:00Z');
@@ -635,7 +822,7 @@
     const years = Math.floor(days / 365);
     const remainingDays = days % 365;
     document.getElementById('uptime-counter').textContent =
-      `Career uptime: ${years}y ${remainingDays}d ${hours}h ${minutes}m ${seconds}s`;
+      `career uptime: ${years}y ${remainingDays}d ${hours}h ${minutes}m ${seconds}s`;
   }
   updateUptime();
   setInterval(updateUptime, 1000);
