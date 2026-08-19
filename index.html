@@ -347,6 +347,45 @@
       </ul>
     </div>
 
+    <div class="job">
+      <div class="job-header">
+        <span class="company"><a href="https://github.com/n0rm4l-me/klink" target="_blank">klink</a></span>
+        <span class="period">2026</span>
+      </div>
+      <div class="role">Author · Apache 2.0 · Go</div>
+      <div class="location">Kubernetes operator for workload dependency management</div>
+      <ul>
+        <li>Automatically scales dependent workloads to zero when their dependencies go unhealthy, restores them on recovery</li>
+        <li>Supports Deployments, StatefulSets, CronJobs, Argo Rollouts; handles mutual A↔B dependencies without deadlock</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="company"><a href="https://github.com/n0rm4l-me/kmorph" target="_blank">kmorph</a></span>
+        <span class="period">2026</span>
+      </div>
+      <div class="role">Author · Apache 2.0 · Go</div>
+      <div class="location">Kubernetes operator for switching cluster resource profiles on schedule or on demand</div>
+      <ul>
+        <li>Define named profiles (sleep, business-hours, demo); switch instantly via CR or cron — cuts staging infrastructure costs overnight</li>
+        <li>Priority-based activation with temporary overrides and auto-expiry</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header">
+        <span class="company"><a href="https://github.com/n0rm4l-me/meshscan" target="_blank">meshscan</a></span>
+        <span class="period">2026</span>
+      </div>
+      <div class="role">Author · Apache 2.0 · Go</div>
+      <div class="location">Istio service mesh configuration auditor</div>
+      <ul>
+        <li>Catches semantic misconfigurations that <code>istioctl analyze</code> misses: missing mTLS enforcement, degraded pods in rotation, EnvoyFilter blast radius, unbounded retry loops</li>
+        <li>No cluster-side install; reads via kubeconfig. Single namespace or <code>-A</code> for full cluster scan with JSON output for CI</li>
+      </ul>
+    </div>
+
     <div class="job" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0;">
       <div class="job-header">
         <span class="company"><a href="https://github.com/kedacore/keda/pull/7844" target="_blank">KEDA</a></span>
