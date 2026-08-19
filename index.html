@@ -40,6 +40,7 @@
       --tag-border: rgba(34, 211, 238, 0.18);
       --mono: 'JetBrains Mono', monospace;
       --section-gap: 2.75rem;
+      --li-color: #cbd5e1;
     }
 
     body {
@@ -218,7 +219,7 @@
       position: relative;
       margin-bottom: 0.3rem;
       font-size: 0.87rem;
-      color: #cbd5e1;
+      color: var(--li-color);
       line-height: 1.6;
     }
 
@@ -284,7 +285,7 @@
       position: relative;
       margin-bottom: 0.35rem;
       font-size: 0.88rem;
-      color: #cbd5e1;
+      color: var(--li-color);
       line-height: 1.6;
     }
 
@@ -389,6 +390,22 @@
       color: var(--muted);
       text-align: center;
       opacity: 0.4;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc;
+        --surface: #f1f5f9;
+        --border: #e2e8f0;
+        --text: #0f172a;
+        --muted: #64748b;
+        --accent: #0891b2;
+        --accent-dim: rgba(8, 145, 178, 0.5);
+        --tag-border: rgba(8, 145, 178, 0.22);
+        --li-color: #334155;
+      }
+      body { background-image: radial-gradient(ellipse at 20% 0%, rgba(8, 145, 178, 0.05) 0%, transparent 55%); }
+      .cursor { background: var(--accent); }
     }
 
     @media print {
