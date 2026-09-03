@@ -4,16 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖥️</text></svg>" />
-  <title>Petr Petrenko — Engineering Manager & Platform Architect</title>
-  <meta name="description" content="Engineering Manager & Platform Architect with 10+ years building cloud-native systems at scale. Vice Manager, Platform SRE Group at Rakuten Group, Inc." />
-  <meta property="og:title" content="Petr Petrenko — Engineering Manager & Platform Architect" />
-  <meta property="og:description" content="Managing platform teams at Rakuten handling 80,000 RPS. Specialized in Kubernetes, GCP, and autonomous systems. Open to relocation in Europe." />
+  <title>Petr Petrenko — Platform Engineering Leader · SRE · Cloud Architecture</title>
+  <meta name="description" content="Platform engineering leader and cloud architect with 12+ years building high-scale distributed systems. Managing ~40 engineers at Rakuten. Relocating to Spain / EU." />
+  <meta property="og:title" content="Petr Petrenko — Platform Engineering Leader · SRE · Cloud Architecture" />
+  <meta property="og:description" content="Managing ~40 engineers at Rakuten across platforms handling 80,000 RPS. Deep expertise in Kubernetes, GCP, distributed systems. Relocating to Spain / EU." />
   <meta property="og:url" content="https://n0rm4l-me.github.io" />
   <meta property="og:type" content="profile" />
   <meta property="og:image" content="https://github.com/n0rm4l-me.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Petr Petrenko — Engineering Manager & Platform Architect" />
-  <meta name="twitter:description" content="Managing platform teams at Rakuten handling 80,000 RPS. Open to relocation in Europe." />
+  <meta name="twitter:title" content="Petr Petrenko — Platform Engineering Leader · SRE · Cloud Architecture" />
+  <meta name="twitter:description" content="Managing ~40 engineers at Rakuten. 80K RPS. Kubernetes, GCP, distributed systems. Relocating to Spain / EU." />
   <meta name="twitter:image" content="https://github.com/n0rm4l-me.png" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B3FETN22E"></script>
@@ -145,8 +145,18 @@
       line-height: 1.72;
     }
 
+    .summary p + p { margin-top: 0.75rem; }
+
     .summary a { color: var(--accent); text-decoration: none; }
     .summary a:hover { text-decoration: underline; }
+
+    .target-roles {
+      margin-top: 0.9rem;
+      font-size: 0.83rem;
+      color: var(--muted);
+    }
+
+    .target-roles strong { color: var(--accent); font-weight: 600; }
 
     /* Jobs (Experience) */
     .job {
@@ -445,14 +455,14 @@
       <img class="avatar" src="https://github.com/n0rm4l-me.png" alt="Petr Petrenko" />
       <div class="header-text">
         <h1>Petr Petrenko</h1>
-        <div class="title">Engineering Manager &amp; Platform Architect<br>Vice Manager, Platform SRE Group · Rakuten Group, Inc.</div>
+        <div class="title">Platform Engineering Leader · SRE · Cloud Architecture<br>Engineering Manager / Platform Architect · Rakuten Group, Inc.</div>
       </div>
     </div>
     <div class="meta">
       <div class="meta-row">
         <span>📍 Tokyo, Japan</span>
         <span class="sep">·</span>
-        <span>Open to relocation in Europe (Spain, France)</span>
+        <span>Relocating to Spain · Open to EU opportunities</span>
       </div>
       <div class="meta-row">
         <a href="https://github.com/n0rm4l-me/n0rm4l-me.github.io/actions" target="_blank" style="display:flex; align-items:center;">
@@ -475,33 +485,19 @@
   <section class="summary">
     <h2>Profile</h2>
     <p>
-      Engineering leader and platform architect with 10+ years building cloud-native systems at scale.
-      Currently managing two platform teams at Rakuten (Point &amp; Coupon) handling peaks of up to 80,000 RPS,
-      while continuing hands-on architecture work across GCP, Kubernetes, and distributed systems.
-      Strong believer in autonomous systems over automation — building platforms that scale, heal, and operate
-      themselves without human intervention. Built an AI-powered monitoring system on Gemini that runs fully
-      autonomously across the entire infrastructure stack. Specialized in Kubernetes, IaC, observability,
-      and turning "it should work" into reality under production pressure.
+      Platform engineering leader and cloud architect with 12+ years building and operating high-scale distributed systems.
+      Currently managing ~40 engineers across two platform teams at Rakuten (Point &amp; Coupon) handling peaks of up to 80,000 RPS,
+      while remaining hands-on in architecture — designing platforms from scratch, resolving complex production incidents,
+      and building systems that operate autonomously at scale.
+    </p>
+    <p>
+      Deep expertise across Kubernetes, GCP, distributed databases, observability, and SRE.
       Author of <a href="https://github.com/n0rm4l-me/spanner-etcd" target="_blank">spanner-etcd</a> —
-      open source drop-in etcd replacement backed by Google Cloud Spanner (15× write throughput, 24h K8s soak test).
+      open-source drop-in etcd replacement backed by Google Cloud Spanner (15× write throughput, 24h K8s soak test).
       Contributor to <a href="https://github.com/kedacore/keda/pull/7844" target="_blank">KEDA</a> (GCP Spanner scaler).
     </p>
-  </section>
-
-  <!-- AI Projects -->
-  <section>
-    <h2>AI Projects</h2>
-    <div class="job" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0;">
-      <div class="job-header">
-        <span class="company">Autonomous Infrastructure Monitoring System</span>
-        <span class="period">2025 – Present</span>
-      </div>
-      <div class="role">Rakuten Group, Inc.</div>
-      <ul>
-        <li>Designed and built a fully autonomous monitoring system powered by Gemini, covering the complete infrastructure stack: service latency and error rates, container CPU/memory, Kubernetes nodes, etcd, Kafka, Spark, Cloud Spanner, CloudSQL, SSL certificates, BigQuery, VPA recommendations, and pod colocation.</li>
-        <li>Produces structured 24h ops summaries with severity-based triage (Needs Attention / Watch / All Clear / Suggestions) — correlating signals across all layers without human intervention, reducing alert fatigue and accelerating incident response.</li>
-        <li>Operates fully autonomously in production for Japan Post platform (Yucho Points) — zero manual configuration required after deployment.</li>
-      </ul>
+    <div class="target-roles">
+      <strong>Target roles:</strong> Staff / Principal Platform Engineer · Platform Engineering Manager · SRE Manager · Cloud / Infrastructure Architect
     </div>
   </section>
 
@@ -578,6 +574,23 @@
       </ul>
     </div>
 
+  </section>
+
+  <!-- AI Projects -->
+  <section>
+    <h2>AI Projects</h2>
+    <div class="job" style="border-bottom: none; padding-bottom: 0; margin-bottom: 0;">
+      <div class="job-header">
+        <span class="company">Autonomous Infrastructure Monitoring System</span>
+        <span class="period">2025 – Present</span>
+      </div>
+      <div class="role">Rakuten Group, Inc.</div>
+      <ul>
+        <li>Designed and built a fully autonomous monitoring system powered by Gemini, covering the complete infrastructure stack: service latency and error rates, container CPU/memory, Kubernetes nodes, etcd, Kafka, Spark, Cloud Spanner, CloudSQL, SSL certificates, BigQuery, VPA recommendations, and pod colocation.</li>
+        <li>Produces structured 24h ops summaries with severity-based triage (Needs Attention / Watch / All Clear / Suggestions) — correlating signals across all layers without human intervention, reducing alert fatigue and accelerating incident response.</li>
+        <li>Operates fully autonomously in production for Japan Post platform (Yucho Points) — zero manual configuration required after deployment.</li>
+      </ul>
+    </div>
   </section>
 
   <!-- Skills -->
@@ -658,13 +671,11 @@
           </div>
           <div class="location">Tokyo, Japan</div>
           <ul>
-            <li>Managing two platform engineering teams (~20 engineers each) — Rakuten Point (peak 80,000 RPS) and Rakuten Coupon (peak 60,000 RPS) — overseeing day-to-day operations, release quality, and team performance.</li>
-            <li>Driving engineering excellence: establishing release processes, conducting code and architecture reviews, and raising the technical bar across both teams.</li>
-            <li>Continuing hands-on architecture work in parallel with management — currently leading architecture of a Points &amp; Campaign platform for Telkomsel (Indonesia's largest telco, 169M subscribers), the largest system of this kind built at Rakuten.</li>
+            <li>Leading ~40 engineers across two platform teams — Rakuten Point (peak 80,000 RPS) and Rakuten Coupon (peak 60,000 RPS) — with full ownership of operations, release quality, and team performance.</li>
+            <li>Hands-on architecture and technical leadership alongside people management: currently leading architecture of a Points &amp; Campaign platform for Telkomsel (Indonesia's largest telco, 169M subscribers), the largest system of this kind built at Rakuten.</li>
+            <li>Driving engineering excellence: establishing release processes, conducting architecture reviews, raising the technical bar across both teams, and leading blameless postmortem culture.</li>
             <li>Leading hiring: conducting technical interviews, defining evaluation criteria, and growing the team with strong engineering talent.</li>
-            <li>Designed fully autonomous scaling across the stack — GKE Autopilot, KEDA (traffic-driven), and Cloud Spanner autoscaling — eliminating the need for capacity planning or manual intervention entirely.</li>
-            <li>Leading blameless postmortem culture across both teams, driving systemic improvements over individual blame.</li>
-            <li>Resolving complex production incidents hands-on; providing Tier-1 on-call support with zero customer impact across multiple platforms.</li>
+            <li>Designed fully autonomous scaling across the stack — GKE Autopilot, KEDA (traffic-driven), and Cloud Spanner autoscaling — eliminating capacity planning and manual intervention entirely.</li>
           </ul>
         </div>
 
@@ -678,7 +689,7 @@
             <li>Architected an autonomous Point System for Japan Post (Yucho Points, millions of users) on GCP from scratch — GKE MultiCluster Gateway, Cloud SQL, Spanner, BigQuery, Dataflow — fully Terraform-managed; self-operating with minimal maintenance.</li>
             <li>Designed a Business Intelligence pipeline (Apache Astra → Cloud Spanner → BigQuery) federated for downstream AWS Glue analysis.</li>
             <li>Implemented Canary Releases across multiple platforms using Argo Rollouts with Kayenta-style analysis, gradual traffic shifting via Gateway API/Istio, and automated rollbacks.</li>
-            <li>Introduced event-driven autoscaling across multiple platforms, cutting infrastructure costs by over 50% with no performance impact.</li>
+            <li>Introduced event-driven autoscaling across multiple platforms, <strong>cutting infrastructure costs by over 50%</strong> with no performance impact.</li>
           </ul>
         </div>
 
@@ -689,14 +700,10 @@
           </div>
           <div class="location">Dalian, China → Tokyo, Japan</div>
           <ul>
-            <li>Led live traffic migration from legacy HAProxy (with complex Lua-based routing logic) to the new One Point Platform — executed under full production load with zero downtime.</li>
-            <li>Implemented AKS cluster autoscaling and QPS-based HPA, minimizing standby costs while enabling rapid failover.</li>
-            <li>Built a traffic mirroring framework to validate production traffic in pre-production before go-live.</li>
-            <li>Implemented Istio-based rate limiting to protect legacy systems under high concurrency.</li>
+            <li>Led live traffic migration from legacy HAProxy (complex Lua-based routing) to the new One Point Platform — executed under full production load with zero downtime.</li>
             <li>Delivered full-stack observability using OpenTelemetry, Jaeger, and Elasticsearch across Istio, APIs, workers, and batch systems.</li>
-            <li>Diagnosed and resolved critical production issues: Cassandra LWT bottlenecks, AKS performance degradation (2× QPS gain), Tombstone overloads via automated compaction pipelines.</li>
+            <li>Diagnosed and resolved critical production issues: Cassandra LWT bottlenecks, AKS performance degradation (<strong>2× QPS gain</strong>), Tombstone overloads via automated compaction pipelines.</li>
             <li>Built a smart Kubernetes sidecar controller dynamically adjusting CronJob schedules based on Kafka lag and system dependencies.</li>
-            <li>Developed incident-driven automation for self-healing failed transactions and automatic impact reporting.</li>
           </ul>
         </div>
 
@@ -707,10 +714,8 @@
           </div>
           <div class="location">Dalian, China</div>
           <ul>
-            <li>Built and managed a hybrid Kubernetes cluster for CI/CD, monitoring, artifact storage, and container registry across on-prem and cloud.</li>
             <li>Designed a hybrid monitoring platform (AKS + on-premises) using Prometheus and Thanos — adopted company-wide as the standard observability solution.</li>
             <li>Developed fully automated DevSecOps pipelines integrating Vault, Jenkins, ArgoCD, SonarQube, Harbor, and Trivy.</li>
-            <li>Implemented IaC for Rakuten Points using Terraform, Ansible, and Python for on-demand provisioning and teardown.</li>
             <li>Deployed a Chaos Engineering platform for resilience testing across multiple Kubernetes clusters.</li>
           </ul>
         </div>
@@ -722,10 +727,8 @@
           </div>
           <div class="location">Dalian, China</div>
           <ul>
-            <li>Built a hybrid Kubernetes cluster spanning OneCloud and Azure for the Point Pilot Release.</li>
-            <li>Containerized all Kotlin applications and developed Kubernetes manifests for Deployments and CronJobs.</li>
+            <li>Built a hybrid Kubernetes cluster spanning OneCloud and Azure for the Point Pilot Release; containerized all Kotlin applications, developed Kubernetes manifests and shared Helm charts.</li>
             <li>Developed the first centralized monitoring and logging platform for One Point using FluentD, Kafka, Logstash, and ELK.</li>
-            <li>Built shared Helm charts and Groovy libraries to standardize CI/CD workflows across multiple projects.</li>
           </ul>
         </div>
 
@@ -739,52 +742,17 @@
 
         <div class="role-entry">
           <div class="role-header">
-            <span class="role">Principal Automation Engineer</span>
-            <span class="period">2018 – May 2020</span>
+            <span class="role">Principal Automation Engineer → Engineer QA</span>
+            <span class="period">May 2014 – May 2020</span>
           </div>
           <ul>
-            <li>Designed a scalable Jenkins-based automation framework integrating 100+ QA suites with real-time reporting via ReportPortal.</li>
-            <li>Built CI/CD pipelines integrating Jenkins with AWS, Bitbucket, Slack, Datadog, and Sumo Logic; provisioned test environments via Terraform and AWS Lambda.</li>
-          </ul>
-        </div>
-
-        <div class="role-entry">
-          <div class="role-header">
-            <span class="role">Senior Software QA Engineer</span>
-            <span class="period">2016 – 2018</span>
-          </div>
-          <ul>
-            <li>Developed automated API tests using C# and Selenium; built logging and monitoring pipelines using Datadog, Sumo Logic, and Grafana.</li>
-          </ul>
-        </div>
-
-        <div class="role-entry">
-          <div class="role-header">
-            <span class="role">Engineer QA</span>
-            <span class="period">May 2014 – 2016</span>
-          </div>
-          <ul>
-            <li>Started in manual QA and grew to Principal Automation Engineer over 6 years, progressively taking ownership of CI/CD and test infrastructure.</li>
+            <li>Progressed from manual QA to principal-level automation engineering over 6 years, taking ownership of CI/CD and cloud test infrastructure. Designed a scalable Jenkins-based automation framework integrating 100+ QA suites; built pipelines integrating AWS, Terraform, Datadog, and Sumo Logic.</li>
           </ul>
         </div>
 
       </div>
     </div>
 
-  </section>
-
-  <!-- Interests -->
-  <section>
-    <h2>Interests</h2>
-    <div class="tags">
-      <span class="tag">Gym</span>
-      <span class="tag">Cycling</span>
-      <span class="tag">Long walks</span>
-      <span class="tag">Music</span>
-      <span class="tag">Movies</span>
-      <span class="tag">Cooking</span>
-      <span class="tag">Reading</span>
-    </div>
   </section>
 
   <!-- Education + Languages -->
