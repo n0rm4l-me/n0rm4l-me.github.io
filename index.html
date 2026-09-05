@@ -65,6 +65,10 @@
 
     .sheet { max-width: 800px; margin: 0 auto; }
 
+    /* Ragged right, but no one-word last lines in body copy and no lopsided headings */
+    p, li, .blurb, .val { text-wrap: pretty; }
+    h1, .headline, .role, .item .title { text-wrap: balance; }
+
     a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(29, 78, 137, 0.25); }
     a:hover { border-bottom-color: var(--accent); }
 
@@ -72,18 +76,11 @@
 
     header { margin-bottom: 3.25rem; }
 
-    .identity {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.6rem;
-    }
-
     .portrait {
-      width: 78px;
-      height: 78px;
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
       object-fit: cover;
-      flex-shrink: 0;
       filter: grayscale(1) contrast(1.02);
     }
 
@@ -164,29 +161,15 @@
 
     /* ---------- Profile ---------- */
 
-    .profile p { font-size: 0.98rem; line-height: 1.7; max-width: 62ch; }
+    .profile p { font-size: 0.98rem; line-height: 1.7; }
     .profile p + p { margin-top: 0.85rem; }
     .profile .lead { font-family: var(--serif); font-size: 1.2rem; line-height: 1.5; letter-spacing: -0.004em; }
 
     .targets {
-      margin-top: 1.5rem;
-      padding-top: 1rem;
+      margin-top: 1.6rem;
+      padding-top: 1.1rem;
       border-top: 1px solid var(--rule);
-      font-size: 0.85rem;
-      color: var(--muted);
     }
-
-    .targets .key {
-      display: block;
-      font-size: 0.66rem;
-      font-weight: 600;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--faint);
-      margin-bottom: 0.3rem;
-    }
-
-    .targets .val { color: var(--ink); }
 
     /* ---------- Experience ---------- */
 
@@ -236,7 +219,6 @@
       font-size: 0.9rem;
       line-height: 1.58;
       color: #2e2e33;
-      max-width: 66ch;
     }
 
     li:last-child { margin-bottom: 0; }
@@ -285,7 +267,8 @@
     }
 
     .pair .val { font-size: 0.88rem; color: #2e2e33; }
-    .pair .val .sep { color: var(--sep); padding: 0 0.1rem; }
+    /* No space before the separator: a line may break after it, never in front of it */
+    .pair .val .sep { color: var(--sep); padding: 0 0.08em 0 0.38em; }
 
     footer {
       margin-top: 4rem;
@@ -298,6 +281,9 @@
     /* ---------- Print ---------- */
 
     @media print {
+      /* Nearly every size on this page is in rem, so print scales from the root down */
+      html { font-size: 13.4px; }
+
       :root {
         --paper: #ffffff;
         --ink: #000000;
@@ -306,20 +292,40 @@
         --rule: #d4d4d4;
         --sep: #a0a0a0;
         --accent: #000000;
+        --gutter: 94px;
         --section-gap: 1.5rem;
       }
-      body { padding: 0; font-size: 10.5pt; line-height: 1.45; }
+
       @page { margin: 1.4cm; }
+
+      body { padding: 0; font-size: 1rem; line-height: 1.45; }
       .sheet { max-width: 100%; }
       a { border-bottom: none; }
-      h1 { font-size: 22pt; }
+
+      h1 { font-size: 20pt; }
       header { margin-bottom: 1.4rem; }
-      .profile .lead { font-size: 12pt; }
-      .entry, .item, .employer-head, .pair { break-inside: avoid; }
-      section > h2 { break-after: avoid; }
-      .employer { margin-bottom: 1.2rem; }
-      .entry { margin-bottom: 0.9rem; }
-      .item { margin-bottom: 0.9rem; }
+      .portrait { width: 68px; height: 68px; }
+      .profile .lead { font-size: 11.5pt; }
+
+      li { line-height: 1.44; margin-bottom: 0.22rem; }
+      .employer { margin-bottom: 1.1rem; }
+      .entry { margin-bottom: 0.85rem; }
+      .item { margin-bottom: 0.85rem; }
+
+      /* A long entry continues on the next page instead of leaving a hole at the foot.
+         The date gutter becomes a float, which survives a page break in every engine,
+         where a fragmented grid does not. */
+      .entry, .item { display: block; }
+      .entry > .when, .item > .when { float: left; width: var(--gutter); }
+      .entry > .when + div, .item > .when + div { margin-left: calc(var(--gutter) + var(--gap)); }
+
+      /* Break between bullets, never inside one. Never strand a heading at a page foot,
+         and never break right after the date, which would leave it behind alone. */
+      li, .employer-head, .pair { break-inside: avoid; }
+      p { orphans: 2; widows: 2; }
+      section > h2, .employer-head, .role, .where, .item .title, .blurb { break-after: avoid; }
+      .role, .item .title { break-before: avoid; }
+
       footer { display: none; }
     }
 
@@ -328,7 +334,7 @@
     @media (max-width: 620px) {
       body { padding: 2.5rem 1.35rem 4rem; }
       h1 { font-size: 2rem; }
-      .identity { gap: 1.1rem; }
+      .identity.row { grid-template-columns: auto 1fr; gap: 0 1.1rem; }
       .portrait { width: 60px; height: 60px; }
       .row { grid-template-columns: 1fr; gap: 0.3rem 0; }
       .when { padding-top: 0; margin-bottom: 0.15rem; }
@@ -344,11 +350,11 @@
 <main class="sheet">
 
   <header>
-    <div class="identity">
+    <div class="identity row">
       <img class="portrait" src="portrait.jpg" width="320" height="320" alt="Petr Petrenko" />
       <div>
         <h1>Petr Petrenko</h1>
-        <div class="headline">Platform Engineering Leader · SRE · Cloud Architecture</div>
+        <div class="headline">Platform Engineering Leader&nbsp;· SRE&nbsp;· Cloud Architecture</div>
         <div class="subhead">Platform SRE Group, Rakuten Group, Inc.</div>
       </div>
     </div>
@@ -371,25 +377,30 @@
   <!-- ============ Profile ============ -->
   <section class="profile">
     <h2>Profile</h2>
-    <p class="lead">
-      Cloud architect and platform engineering leader. 12+ years in engineering, the last six
-      building and operating cloud platforms at scale.
-    </p>
-    <p>
-      Currently managing ~40 engineers across two platform teams at Rakuten (Rakuten Point at 80,000 RPS peak,
-      Rakuten Coupon at 60,000 RPS) while owning architecture hands-on: designing platforms from scratch,
-      debugging production incidents at the Kubernetes and Spanner layer, and building infrastructure that
-      scales and recovers without human intervention.
-    </p>
-    <p>
-      Author of <a href="https://github.com/n0rm4l-me/spanner-etcd" target="_blank" rel="noopener">spanner-etcd</a>,
-      an open-source drop-in etcd v3 replacement backed by Google Cloud Spanner: 15× write throughput,
-      validated against Kubernetes v1.33 in a 24-hour soak test. Contributor to
-      <a href="https://github.com/kedacore/keda/pull/7844" target="_blank" rel="noopener">KEDA</a> (GCP Spanner scaler).
-    </p>
-    <div class="targets">
-      <span class="key">Looking for</span>
-      <span class="val">Staff / Principal Platform Engineer · Cloud &amp; Infrastructure Architect · Site Reliability Engineering</span>
+    <div class="row">
+      <div class="when"></div>
+      <div>
+        <p class="lead">
+          Cloud architect and platform engineering leader. 12+ years in engineering, the last six
+          building and operating cloud platforms at scale.
+        </p>
+        <p>
+          Currently managing ~40 engineers across two platform teams at Rakuten (Rakuten Point at 80,000 RPS peak,
+          Rakuten Coupon at 60,000 RPS) while owning architecture hands-on: designing platforms from scratch,
+          debugging production incidents at the Kubernetes and Spanner layer, and building infrastructure that
+          scales and recovers without human intervention.
+        </p>
+        <p>
+          Author of <a href="https://github.com/n0rm4l-me/spanner-etcd" target="_blank" rel="noopener">spanner-etcd</a>,
+          an open-source drop-in etcd v3 replacement backed by Google Cloud Spanner: 15× write throughput,
+          validated against Kubernetes v1.33 in a 24-hour soak test. Contributor to
+          <a href="https://github.com/kedacore/keda/pull/7844" target="_blank" rel="noopener">KEDA</a> (GCP Spanner scaler).
+        </p>
+      </div>
+    </div>
+    <div class="targets pair row">
+      <div class="key">Looking for</div>
+      <div class="val">Staff / Principal Platform Engineer<span class="sep">·</span> Cloud &amp; Infrastructure Architect<span class="sep">·</span> Site Reliability Engineering</div>
     </div>
   </section>
 
@@ -565,42 +576,42 @@
 
     <div class="pair row">
       <div class="key">Languages</div>
-      <div class="val">Go <span class="sep">·</span> Python <span class="sep">·</span> Bash</div>
+      <div class="val">Go<span class="sep">·</span> Python<span class="sep">·</span> Bash</div>
     </div>
 
     <div class="pair row">
       <div class="key">Orchestration</div>
-      <div class="val">Kubernetes <span class="sep">·</span> GKE / Autopilot <span class="sep">·</span> Istio <span class="sep">·</span> Helm <span class="sep">·</span> Argo Rollouts <span class="sep">·</span> KEDA</div>
+      <div class="val">Kubernetes<span class="sep">·</span> GKE / Autopilot<span class="sep">·</span> Istio<span class="sep">·</span> Helm<span class="sep">·</span> Argo Rollouts<span class="sep">·</span> KEDA</div>
     </div>
 
     <div class="pair row">
       <div class="key">Cloud</div>
-      <div class="val">GCP <span class="sep">·</span> AWS <span class="sep">·</span> Azure <span class="sep">·</span> On-premises</div>
+      <div class="val">GCP<span class="sep">·</span> AWS<span class="sep">·</span> Azure<span class="sep">·</span> On-premises</div>
     </div>
 
     <div class="pair row">
       <div class="key">Google Cloud</div>
-      <div class="val">Cloud Spanner <span class="sep">·</span> BigQuery <span class="sep">·</span> Cloud SQL <span class="sep">·</span> Pub/Sub <span class="sep">·</span> Dataflow <span class="sep">·</span> Cloud Run <span class="sep">·</span> Private Service Connect <span class="sep">·</span> Interconnect</div>
+      <div class="val">Cloud Spanner<span class="sep">·</span> BigQuery<span class="sep">·</span> Cloud SQL<span class="sep">·</span> Pub/Sub<span class="sep">·</span> Dataflow<span class="sep">·</span> Cloud Run<span class="sep">·</span> Private Service Connect<span class="sep">·</span> Interconnect</div>
     </div>
 
     <div class="pair row">
       <div class="key">Data</div>
-      <div class="val">etcd <span class="sep">·</span> Kafka <span class="sep">·</span> Cassandra <span class="sep">·</span> Redis <span class="sep">·</span> MySQL</div>
+      <div class="val">etcd<span class="sep">·</span> Kafka<span class="sep">·</span> Cassandra<span class="sep">·</span> Redis<span class="sep">·</span> MySQL</div>
     </div>
 
     <div class="pair row">
       <div class="key">Observability</div>
-      <div class="val">Prometheus <span class="sep">·</span> Thanos <span class="sep">·</span> Grafana <span class="sep">·</span> OpenTelemetry <span class="sep">·</span> Jaeger <span class="sep">·</span> Datadog <span class="sep">·</span> Elasticsearch <span class="sep">·</span> PagerDuty</div>
+      <div class="val">Prometheus<span class="sep">·</span> Thanos<span class="sep">·</span> Grafana<span class="sep">·</span> OpenTelemetry<span class="sep">·</span> Jaeger<span class="sep">·</span> Datadog<span class="sep">·</span> Elasticsearch<span class="sep">·</span> PagerDuty</div>
     </div>
 
     <div class="pair row">
       <div class="key">Delivery</div>
-      <div class="val">Terraform <span class="sep">·</span> ArgoCD <span class="sep">·</span> Cloud Build <span class="sep">·</span> Jenkins <span class="sep">·</span> Ansible</div>
+      <div class="val">Terraform<span class="sep">·</span> ArgoCD<span class="sep">·</span> Cloud Build<span class="sep">·</span> Jenkins<span class="sep">·</span> Ansible</div>
     </div>
 
     <div class="pair row">
       <div class="key">AI</div>
-      <div class="val">Gemini API <span class="sep">·</span> LLM-driven ops automation <span class="sep">·</span> Anomaly detection</div>
+      <div class="val">Gemini API<span class="sep">·</span> LLM-driven ops automation<span class="sep">·</span> Anomaly detection</div>
     </div>
   </section>
 
@@ -624,7 +635,7 @@
     </div>
     <div class="pair row">
       <div class="key">Mandarin</div>
-      <div class="val">Native / bilingual <span class="sep">·</span> B.A. earned in Chinese, six years working in Dalian</div>
+      <div class="val">Native / bilingual<span class="sep">·</span> B.A. earned in Chinese, six years working in Dalian</div>
     </div>
     <div class="pair row">
       <div class="key">English</div>
