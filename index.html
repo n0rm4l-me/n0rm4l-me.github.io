@@ -109,6 +109,25 @@
       margin-top: 0.15rem;
     }
 
+    /* Nobody presses Cmd+P on a web page, so the print layout needs an invitation.
+       Floated rather than positioned, so it can never land on top of the name. */
+    .print {
+      float: right;
+      margin: 0.2rem 0 0.5rem 1.25rem;
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      background: none;
+      border: 1px solid var(--rule);
+      padding: 0.5rem 0.8rem;
+      cursor: pointer;
+    }
+
+    .print:hover { color: var(--ink); border-color: var(--sep); }
+
     .contact {
       margin-top: 1.5rem;
       padding-top: 1.1rem;
@@ -336,7 +355,7 @@
       section > h2, .employer-head, .role, .where, .item .title, .blurb { break-after: avoid; }
       .role, .item .title { break-before: avoid; }
 
-      footer { display: none; }
+      .print, footer { display: none; }
     }
 
     /* ---------- Narrow ---------- */
@@ -353,6 +372,8 @@
       .pair .key { padding-top: 0.5rem; }
       .employer-head { margin-bottom: 1.2rem; }
       .contact .dot { display: none; }
+      /* No room beside the name at this width: the button would wrap it in two */
+      .print { display: none; }
     }
   </style>
 </head>
@@ -363,6 +384,7 @@
     <div class="identity row">
       <img class="portrait" src="portrait.jpg" width="320" height="320" alt="Petr Petrenko" />
       <div>
+        <button type="button" class="print">Print / PDF</button>
         <h1>Petr Petrenko</h1>
         <div class="headline">Platform Engineering Leader&nbsp;· SRE&nbsp;· Cloud Architecture</div>
         <div class="subhead">Platform SRE Group, Rakuten Group, Inc.</div>
@@ -666,6 +688,10 @@
     el.href = 'mailto:' + u;
     el.textContent = u;
   })();
+
+  document.querySelector('.print').addEventListener('click', function () {
+    window.print();
+  });
 
   console.log('%c> sudo hire petr', 'font-family:monospace;font-size:13px;');
 </script>
