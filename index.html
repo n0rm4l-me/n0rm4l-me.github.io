@@ -26,6 +26,22 @@
     gtag('js', new Date());
     gtag('config', 'G-2B3FETN22E');
   </script>
+  <script>
+    /* A placeholder for the portrait cannot be a file of its own: whatever stripped the
+       photo strips the replacement too, and the fallback fails exactly where it is needed.
+       Hence the inline SVG. Bound here in the capture phase, because resource errors do not
+       bubble and can fire long before a script at the end of the body would run. */
+    addEventListener('error', function (e) {
+      var img = e.target;
+      if (!img.classList || !img.classList.contains('portrait')) return;
+      if (img.src.slice(0, 5) === 'data:') return;
+      img.src = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>"
+        + "<rect width='100' height='100' fill='%2318181b'/><text x='50' y='50' fill='%23fcfcfa'"
+        + " font-family='Georgia,serif' font-size='54' text-anchor='middle'"
+        + " dominant-baseline='central'>PP</text></svg>";
+      img.title = 'ImagePullBackOff';
+    }, true);
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
