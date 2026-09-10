@@ -356,6 +356,10 @@
       .role, .item .title { break-before: avoid; }
 
       .print, footer { display: none; }
+
+      /* Invisible, but it sits between the last line and the foot of the page and can
+         cost a whole extra sheet when the last page is nearly full. */
+      section:last-of-type { margin-bottom: 0; }
     }
 
     /* ---------- Narrow ---------- */
